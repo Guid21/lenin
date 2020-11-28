@@ -1,12 +1,9 @@
 import React from 'react';
-import { Input } from 'antd';
 
 import styles from './App.module.scss';
 
 import ListPaperContainer from './containers/ListPaperContainer';
 import Papers from './secns/Papers';
-
-const { Search } = Input;
 
 function App() {
   return (
