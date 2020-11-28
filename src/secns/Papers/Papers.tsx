@@ -1,14 +1,17 @@
 import React from 'react';
 
+import Layout from '../../shared/hoks/Layout';
 import ListPapers from './components/ListPapers';
 import SearchPapers from './components/SearchPapers';
+import UploadPapers from './components/UploadPapers';
 
 const Papers = () => {
   return (
-    <div>
+    <Layout>
       <SearchPapers />
+      <UploadPapers />
       <ListPapers />
-    </div>
+    </Layout>
   );
 };
 

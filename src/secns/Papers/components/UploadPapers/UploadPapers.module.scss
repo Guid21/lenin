@@ -1,0 +1,25 @@
+.UploadPapers {
+  width: 100%;
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: flex-end;
+
+  @media all and (max-width: 900px) {
+    // span {
+    //   width: 100%;
+    // }
+    > span {
+      width: 100%;
+    }
+    :global {
+      .ant-upload {
+        width: 100%;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

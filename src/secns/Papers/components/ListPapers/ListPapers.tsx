@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
-import { Card } from 'antd';
+import { Card, Typography } from 'antd';
 
 import ListPaperContainer from '../../../../containers/ListPaperContainer';
 
 import styles from './ListPapers.module.scss';
+
+const { Title } = Typography;
 
 const ListSearch = () => {
   const { listPaper } = ListPaperContainer?.useContainer();
@@ -18,7 +20,11 @@ const ListSearch = () => {
     [listPaper]
   );
 
-  return <div className={styles.ListSearch}>{list}</div>;
+  const empty = <Title level={3}>Нет данных</Title>;
+
+  return (
+    <div className={styles.ListSearch}>{list.length > 0 ? list : empty}</div>
+  );
 };
 
 export default ListSearch;

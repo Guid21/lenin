@@ -1,4 +1,4 @@
-import Search from 'antd/lib/input/Search';
+import { Input } from 'antd';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 
 import ListPaperContainer from '../../../../containers/ListPaperContainer';
@@ -20,11 +20,7 @@ const SearchPapers = () => {
 
   return (
     <div className={styles.SearchPapers}>
-      <Search
-        placeholder="input search text"
-        enterButton
-        onChange={searchPeapers}
-      />
+      <Input placeholder="Введите дату" onChange={searchPeapers} />
     </div>
   );
 };
