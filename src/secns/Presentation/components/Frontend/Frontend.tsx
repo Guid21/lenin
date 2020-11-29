@@ -11,8 +11,7 @@ const Frontend = () => {
       <Title level={2}>Frontend</Title>
       Стек технологий:
       <br /> - react - библиотека для удобной разработки ui
-      <br /> - react-dom & react-router-dom
-      <br /> - библиотека для настройки роутинга
+      <br /> - react-dom & react-router-dom - библиотека для настройки роутинга
       <br /> - ajax - библиотека для удобного общения с сервером
       <br /> - node-sass - css припроцессоры
       <br /> - typescript - используется для типизации
