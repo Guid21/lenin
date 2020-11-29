@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { List, Spin, Tag, Typography } from 'antd';
 
 import ListPaperContainer from '../../../../containers/ListPaperContainer';
