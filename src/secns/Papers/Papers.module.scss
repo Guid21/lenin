@@ -1,2 +1,12 @@
-.ListSearch {
+@import '../../shared/styles/variables';
+
+.ControlPanel {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 2rem;
+
+  @media all and (max-width: $sm) {
+    flex-direction: column;
+  }
 }

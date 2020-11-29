@@ -1,32 +1,60 @@
 import React from 'react';
-import { Upload, message, Button } from 'antd';
+import { Upload, Button, notification } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { UploadChangeParam } from 'antd/lib/upload';
-import { UploadFile } from 'antd/lib/upload/interface';
+
+import ListPaperContainer from '../../../../containers/ListPaperContainer';
+import isLoadingContainer from '../../../../containers/isLoadingContainer';
 
 import styles from './UploadPapers.module.scss';
 
+const openNotificationWithIcon = (
+  type: 'error' | 'warning' | 'success',
+  message: string
+) => {
+  notification[type]({
+    message,
+  });
+};
+
 const UploadPapers = () => {
+  const { setDate } = ListPaperContainer.useContainer();
+  const { setIsLoading } = isLoadingContainer.useContainer();
+
   const props = {
     name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'https://api.ali-set.com/file',
     headers: {
       authorization: 'authorization-text',
     },
-    onChange(info: UploadChangeParam<UploadFile<any>>) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+    onSuccess(resp: any) {
+      setIsLoading(false);
+      setDate(resp);
     },
   };
+
   return (
     <div className={styles.UploadPapers}>
-      <Upload {...props}>
+      <Upload
+        fileList={[]}
+        beforeUpload={(file: File) => {
+          setIsLoading(true);
+
+          if (file.size > 10000000) {
+            setIsLoading(false);
+            openNotificationWithIcon(
+              'warning',
+              'Размер файла не должен превышать 10 мб'
+            );
+          } else if (file.name.includes('.csv')) {
+            return true;
+          }
+          openNotificationWithIcon('warning', 'Формат файла должен быть .csv');
+          setIsLoading(false);
+
+          return false;
+        }}
+        {...props}
+      >
         <Button icon={<UploadOutlined />}>Загрузить список дат</Button>
       </Upload>
     </div>

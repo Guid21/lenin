@@ -5,11 +5,15 @@ import ListPapers from './components/ListPapers';
 import SearchPapers from './components/SearchPapers';
 import UploadPapers from './components/UploadPapers';
 
+import styles from './Papers.module.scss';
+
 const Papers = () => {
   return (
     <Layout>
-      <SearchPapers />
-      <UploadPapers />
+      <div className={styles.ControlPanel}>
+        <SearchPapers />
+        <UploadPapers />
+      </div>
       <ListPapers />
     </Layout>
   );

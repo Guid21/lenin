@@ -1,14 +1,15 @@
+@import '../../../../shared/styles/variables';
+
 .UploadPapers {
   width: 100%;
-  margin-top: 1rem;
 
   display: flex;
   justify-content: flex-end;
+  flex: 0;
 
-  @media all and (max-width: 900px) {
-    // span {
-    //   width: 100%;
-    // }
+  @media all and (max-width: $sm) {
+    margin-top: 1rem;
+
     > span {
       width: 100%;
     }

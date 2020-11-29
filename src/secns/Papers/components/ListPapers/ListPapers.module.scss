@@ -1,7 +1,48 @@
+@import '../../../../shared/styles/variables';
+
 .ListSearch {
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 
-  .Card + .Card {
-    margin-top: 1rem;
+  .Item {
+    display: flex;
+
+    > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+  @media all and(max-width: $sm) {
+    .Item {
+      flex-direction: column;
+
+      > div:nth-child(2) {
+        align-items: flex-start;
+      }
+
+      > div {
+        width: 100%;
+      }
+
+      > div + div {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  :global {
+    .ant-tag {
+      white-space: inherit;
+      margin: 0;
+    }
+
+    @media all and (max-width: $sm) {
+      .ant-tag {
+        width: 100%;
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Button } from 'antd';
 
 const Layout: FC<any> = ({ children }) => {
   return (
@@ -8,6 +9,7 @@ const Layout: FC<any> = ({ children }) => {
           src="https://rusneb.ru/local/templates/neb/assets/image/logo.svg"
           alt="logo"
         />
+        <Button type="primary">Презентация</Button>
       </header>
       {children}
     </div>

@@ -2,11 +2,7 @@ import { useCallback, useState } from 'react';
 import { createContainer } from 'unstated-next';
 import Axios from 'axios';
 
-interface ListPaperProps {
-  id: number;
-  title: string;
-  description: string;
-}
+type ListPaperProps = [string, string];
 
 export interface ListPaperOutput {
   listPaper: ListPaperProps[];
@@ -16,17 +12,26 @@ export interface ListPaperOutput {
 function useCounter(initialState: ListPaperProps[] = []) {
   const [listPaper, setListPaper] = useState(initialState);
 
-  const update = useCallback(async ({ q }: { q: string }) => {
+  const getDate = useCallback(async ({ text }: { text: string }) => {
     const { data }: { data: ListPaperProps[] } = await Axios.request({
-      url: 'http://localhost:3001/papers',
-      params: { q },
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      url: 'https://api.ali-set.com/get_date',
+      params: { text },
     });
-
-    console.log(data);
 
     setListPaper(data);
   }, []);
-  return { listPaper, update };
+
+  const setDate = useCallback(
+    (data: ListPaperProps[]) => setListPaper(data),
+    []
+  );
+
+  return { listPaper, getDate, setDate };
 }
 
 const Counter = createContainer(useCounter);

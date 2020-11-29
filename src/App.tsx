@@ -3,17 +3,20 @@ import React from 'react';
 import styles from './App.module.scss';
 
 import ListPaperContainer from './containers/ListPaperContainer';
+import isLoadingContainer from './containers/isLoadingContainer';
 import Papers from './secns/Papers';
 
 function App() {
   return (
-    <ListPaperContainer.Provider>
-      <div className={styles.App}>
-        <div className={styles.Container}>
-          <Papers />
+    <isLoadingContainer.Provider>
+      <ListPaperContainer.Provider>
+        <div className={styles.App}>
+          <div className={styles.Container}>
+            <Papers />
+          </div>
         </div>
-      </div>
-    </ListPaperContainer.Provider>
+      </ListPaperContainer.Provider>
+    </isLoadingContainer.Provider>
   );
 }
 

@@ -7,7 +7,7 @@ import styles from './SearchPapers.module.scss';
 
 const SearchPapers = () => {
   const [search, setSearch] = useState('');
-  const { update } = ListPaperContainer.useContainer();
+  const { getDate } = ListPaperContainer.useContainer();
 
   const searchPeapers = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
@@ -15,8 +15,8 @@ const SearchPapers = () => {
   );
 
   useEffect(() => {
-    update({ q: search });
-  }, [search, update]);
+    if (search.trim().length > 3) getDate({ text: search });
+  }, [search, getDate]);
 
   return (
     <div className={styles.SearchPapers}>
