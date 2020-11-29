@@ -5,7 +5,6 @@ import styles from './App.module.scss';
 import ListPaperContainer from './containers/ListPaperContainer';
 import isLoadingContainer from './containers/isLoadingContainer';
 import Routing from './shared/hoks/Routing';
-import Layout from './shared/hoks/Layout';
 
 function App() {
   return (

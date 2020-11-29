@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Papers from '../../secns/Papers';
 import Presentation from '../../secns/Presentation';
 
-const Routing: FC<any> = ({ children }) => {
+const Routing: FC<any> = () => {
   return (
     <Router>
       <Switch>

@@ -1,8 +1,6 @@
 {
   "name": "lenin",
   "version": "0.1.0",
-  "homepage": "https://api.ali-set.com",
-  "proxy": "https://api.ali-set.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -14,7 +12,6 @@
     "ajax": "^0.0.4",
     "antd": "^4.8.5",
     "axios": "^0.21.0",
-    "json-server": "^0.16.3",
     "node-sass": "4.13.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -27,7 +24,6 @@
   "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
-    "mock": "json-server -w db.json -p 3001 -d 17",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
