@@ -4,7 +4,8 @@ import styles from './App.module.scss';
 
 import ListPaperContainer from './containers/ListPaperContainer';
 import isLoadingContainer from './containers/isLoadingContainer';
-import Papers from './secns/Papers';
+import Routing from './shared/hoks/Routing';
+import Layout from './shared/hoks/Layout';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <ListPaperContainer.Provider>
         <div className={styles.App}>
           <div className={styles.Container}>
-            <Papers />
+            <Routing />
           </div>
         </div>
       </ListPaperContainer.Provider>
